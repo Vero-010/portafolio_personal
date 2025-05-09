@@ -1,71 +1,82 @@
 import React from 'react';
 
 const Habilidades = () => {
-  // Lista de habilidades técnicas
-  const technicalSkills = [
-    { name: 'React', level: 80, icon: '⚛️' },
-    { name: 'JavaScript', level: 85, icon: '📜' },
-    { name: 'HTML/CSS', level: 90, icon: '🌐' },
-    { name: 'Tailwind CSS', level: 75, icon: '🎨' },
-    { name: 'Git', level: 70, icon: '📊' },
-    { name: 'MySQL', level: 65, icon: '🗄️' }
-  ];
-
-  // Habilidades personales/blandas
-  const softSkills = [
-    "Responsable",
-    " Creativa",
-    "Puntual",
-    "Aprendizaje continuo",
-    "Solución de problemas",
-    "Trabajo en equipo",
-    "Adaptabilidad"
+  const tecnologias = [
+    {
+      nombre: "HTML",
+      imagen: "/html.png",
+      nivel: "Avanzado",
+      descripcion: "Estructura semántica, HTML5, formularios, accesibilidad"
+    },
+    {
+      nombre: "CSS",
+      imagen: "/css.png",
+      nivel: "Avanzado",
+      descripcion: "Flexbox, Grid, animaciones, responsive design"
+    },
+    {
+      nombre: "JavaScript",
+      imagen: "/js.png",
+      nivel: "Avanzado",
+      descripcion: "ES6+, asincronía, DOM manipulation, APIs"
+    },
+    {
+      nombre: "React",
+      imagen: "/react.png",
+      nivel: "Intermedio-Avanzado",
+      descripcion: "Hooks, Context API, Redux, React Router"
+    },
+    {
+      nombre: "Tailwind CSS",
+      imagen: "/tailwind.png",
+      nivel: "Intermedio",
+      descripcion: "Utility-first, responsive, personalización"
+    },
+    {
+      nombre: "GitHub",
+      imagen: "/github.png",
+      nivel: "Intermedio",
+      descripcion: "Control de versiones, colaboración, CI/CD"
+    }
   ];
 
   return (
-    <section className="mb-16">
-      <h2 className="text-3xl font-bold mb-8 pb-2 border-b-2 border-pink-300">Habilidades</h2>
-      
-      <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h3 className="text-2xl font-semibold mb-6">Habilidades técnicas</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {technicalSkills.map((skill, index) => (
-            <div key={index} className="bg-gray-50 p-4 rounded-lg shadow">
-              <div className="flex items-center mb-2">
-                <span className="text-2xl mr-2">{skill.icon}</span>
-                <h4 className="font-medium">{skill.name}</h4>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-4">
-                <div
-                  className="bg-pink-400 h-4 rounded-full"
-                  style={{ width: `${skill.level}%` }}
-                ></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className="max-w-6xl mx-auto p-6 font-montserrat text-white">
+      <h2 className="text-3xl font-bold mb-8 text-center">
+        Mis <span className="text-blue-400">Habilidades</span>
+      </h2>
 
-      <div className="bg-white rounded-xl shadow-lg p-8">
-        <h3 className="text-2xl font-semibold mb-6">Habilidades personales</h3>
-        <div className="flex flex-wrap gap-3">
-          {softSkills.map((skill, index) => (
-            <span 
-              key={index} 
-              className="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-medium"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-        <div className="mt-6 p-6 bg-pink-50 rounded-lg">
-          <p className="text-gray-700">
-            Soy una persona responsable, creativa y puntual, con una mentalidad orientada al aprendizaje continuo y a la solución de problemas. 
-            Mi objetivo es contribuir al crecimiento de organizaciones mediante la creación de soluciones tecnológicas efectivas y alineadas con las necesidades del mercado.
-          </p>
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {tecnologias.map((tech, index) => (
+          <div
+            key={index}
+            className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-blue-500/30 hover:scale-105 transform transition duration-300"
+          >
+            <div className="flex flex-col items-center text-center">
+              {/* Imagen con tamaño fijo */}
+              <div className="w-14 h-14 flex items-center justify-center mb-3">
+                <img
+                  src={tech.imagen}
+                  alt={`Logo de ${tech.nombre}`}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+
+              {/* Nombre */}
+              <h3 className="text-base font-semibold mb-1">{tech.nombre}</h3>
+
+              {/* Nivel */}
+              <span className="text-sm text-blue-300 font-medium mb-2">
+                {tech.nivel}
+              </span>
+
+              {/* Descripción */}
+              <p className="text-xs text-gray-300">{tech.descripcion}</p>
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
